@@ -1,8 +1,17 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Login from "./Login/login"
 
 function App() {
   return (
     <>
+<Router>
+  <Switch>
+
+    <Route path="/login" component={Login} />
+  </Switch>
+</Router>
     <div className="App">
       <header className="App-header">
         <p>
