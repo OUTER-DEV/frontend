@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-dom';
 
 
 import Login from "./Login/login"
@@ -12,6 +12,9 @@ function App() {
     <>
     <Router>
   <Switch>
+  <Route exact path="/">
+        <Redirect to="/login" />
+      </Route>
     <Route path="/login" component={Login} />
     <Route path="/main" component={MainPage} />
   </Switch>

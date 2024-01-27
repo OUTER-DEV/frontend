@@ -5,7 +5,7 @@ const MessageA = () => {
 };
 
 const MessageB = () => {
-  return <p>B</p>;
+  return <p>Hello from B</p>;
 };
 
 const Dashboard = () => {

@@ -2,7 +2,13 @@ import React from 'react';
 
 
 const MainPage = () => {
-  return <h1 className='bg-blue-500 text-white p-4' >Page principale</h1>;
+  return (
+    <>
+    <div>A</div>
+    <div>B</div>
+    
+    </>
+  )
 };
 
 export default MainPage;
