@@ -9,6 +9,8 @@ import MainPage from "./Main/main"
 import Dashboard from "./Dashboard/dashboard"
 
 
+import Home from './Home/Home';
+
 
 function App() {
   return (
@@ -17,11 +19,15 @@ function App() {
   <Switch>
   <Route exact path="/">
         <Redirect to="/login" />
-      </Route>
+
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
     <Route path="/main" component={MainPage} />
     <Route path="/dashboard" component={Dashboard} />
+
+  </Route>
+  <Route path="/login" component={Login} />
+  <Route path="/home" component={Home} />
 
   </Switch>
 </Router>
