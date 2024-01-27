@@ -5,10 +5,13 @@ import Loading from '../components/loading';
 import { FaUser, FaLock } from 'react-icons/fa';
 import MainPage from '../Main/main';
 import Form from '../components/form';
+import { createAccount } from '../api/api_sign_up';
 
 const RegisterForm = () => {
   const history = useHistory();
   const [userName, setUserName] = useState('');
+  const [firstName, setFirstName] = useState(''); 
+  const [lastName, setLastName] = useState('');
   const [pin, setPin] = useState('');
   const [confirmPin, setConfirmPin] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,7 +20,12 @@ const RegisterForm = () => {
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
   };
-
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value);
+  };
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value);
+  };
   const handlePinChange = (e) => {
     const inputPin = e.target.value;
     if (/^\d{0,4}$/.test(inputPin)) {
@@ -38,18 +46,22 @@ const RegisterForm = () => {
 
     if (pin.length === 4 && pin === confirmPin) {
       setLoading(true);
+  
+      try {
+        await createAccount(userName, firstName, lastName, pin, confirmPin);
 
-      // Simulating a loading state
-      setTimeout(() => {
+        setTimeout(() => {
+          setLoading(false);
+          history.push('/main');
+        }, 2000);
+      } catch (error) {
+        console.error('Erreur lors de la création du compte:', error.message);
         setLoading(false);
-        history.push('/main');
-      }, 2000);
+      }
     } else {
-      console.error(
-        'Le PIN doit contenir exactement 4 chiffres et les deux PIN doivent correspondre !'
-      );
+      console.error('Le PIN doit contenir exactement 4 chiffres et les deux PIN doivent correspondre !');
     }
-  };
+  };;
 
   let content;
   if (buttonClicked) {
@@ -65,11 +77,25 @@ const RegisterForm = () => {
         buttonText="Register"
         fields={[
           {
-            id: 'userName',
+            id: 'username',
             type: 'text',
             value: userName,
             onChange: handleUserNameChange,
-            placeholder: "Nom d'utilisateur",
+            placeholder: "User name",
+            icon: <FaUser />,
+          }, {
+            id: 'firstname',
+            type: 'text',
+            value: firstName,
+            onChange: handleFirstNameChange,
+            placeholder: "First Name",
+            icon: <FaUser />,
+          }, {
+            id: 'lastname',
+            type: 'text',
+            value: lastName,
+            onChange: handleLastNameChange,
+            placeholder: "Last name",
             icon: <FaUser />,
           },
           {
@@ -90,10 +116,18 @@ const RegisterForm = () => {
           },
         ]}
         customDiv={
-          <div>
-            <h2>Inscription</h2>
-            <p className='test'>
-              Déjà inscrit ? <Link to="/login">Se connecter</Link>
+          <div className="mt-4">
+            <p className="text-center test">
+              Déjà inscrit ?{' '}
+              <span
+                onClick={() => {
+                  history.push('/login');
+                  window.location.reload();
+                }}
+                style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+              >
+                Se connecter
+              </span>
             </p>
           </div>
         }
