@@ -3,7 +3,9 @@ import "./loading.css"
 
 const Loading = () => {
   return (
-    <h1 className="loading">Loading.</h1>
+    <div class="spinner">
+        <div class="spinner_inside"></div>
+    </div>
   );
 };
 
