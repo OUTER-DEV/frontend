@@ -2,10 +2,12 @@
     border: solid 0px;
     border-radius: 20px;
     background-color: rgba(33, 17, 122, 0.631);
-width: 50vw;
-height: 70vh;
+
 padding: 10% 10%;
 text-align: center;
+animation-name: mainContainer;
+animation-duration: 1s;
+
 }
 ._input{
     width: 25vw;
@@ -42,4 +44,14 @@ text-align: center;
 }
 #root > form > div > div:nth-child(1){
     padding-top: 10%;
+}
+
+@keyframes mainContainer {
+    from { width: 20vw;
+        height: 30vh;
+
+    } 
+    to { width: 50vw;
+        height: 70vh;}
+
 }
