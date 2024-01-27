@@ -83,7 +83,7 @@ const LoginForm = () => {
             ]}
             buttonDisabled={pin.length !== 4}
             customDiv={
-              <div className="mt-4">
+              <div className="mt-4 i">
                 <p className="text-center test">
                   Pas encore inscrit ?{' '}
                   <span

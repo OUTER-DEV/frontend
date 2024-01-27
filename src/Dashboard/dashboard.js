@@ -27,21 +27,25 @@ const Dashboard = () => {
       <div className='left'>
         <h1 className=''>Tableau de bord</h1>
         <div className='btn_cnt'>
-          <button
+          <div className='cont-btn'>
+               <label className='icon'><FaHome/></label>
+             <button
             className='btn'
             onClick={handleClickA}
           >
-            <label><FaHome/></label>
             Cliquez pour A
           </button>
+          </div>
+          <div className='cont-btn'>
+              <label className='icon'><FaPlus/></label>
           <button
             className='btn'
             onClick={handleClickB}
           >
-                        <label><FaPlus/></label>
-
             Cliquez pour B
           </button>
+          </div>
+       
         </div>
       
       </div>

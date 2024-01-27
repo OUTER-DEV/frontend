@@ -24,7 +24,7 @@ const MainPage = () => {
 
   return (
     <div>
-      {imageURL && <img src={imageURL} alt="Image" />}
+      {imageURL  && <img src={imageURL} alt="" />}
     </div>
   );
 };

@@ -37,3 +37,9 @@ text-align: center;
 .test{
     color: wheat;
 }
+.i{
+     margin-top: -7%;
+}
+#root > form > div > div:nth-child(1){
+    padding-top: 10%;
+}

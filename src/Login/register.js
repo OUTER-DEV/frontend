@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
-import './login.css';
+import { useHistory } from 'react-router-dom';
+import './register.css';
 import Loading from '../components/loading';
 import { FaUser, FaLock } from 'react-icons/fa';
 import MainPage from '../Main/main';
@@ -73,6 +73,7 @@ const RegisterForm = () => {
   } else {
     content = (
       <Form
+      className="register"
         onSubmit={handleSubmit}
         buttonText="Register"
         fields={[
@@ -116,7 +117,7 @@ const RegisterForm = () => {
           },
         ]}
         customDiv={
-          <div className="mt-4">
+          <div className="mt-0 h">
             <p className="text-center test">
               Déjà inscrit ?{' '}
               <span
