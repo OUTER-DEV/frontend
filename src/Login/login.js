@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './login.css';
 import Loading from '../components/loading';
 import { FaUser, FaLock } from 'react-icons/fa';
-import MainPage from '../Main/main';
+import Home from '../Home/Home';
 import Form from '../components/form';
 import { login } from '../api/api_login';
 
@@ -38,8 +38,8 @@ const LoginForm = () => {
         setUserName(responseData.user);
         setTimeout(() => {
           setLoading(false);
-          history.push('/main');
-        }, 10000);
+          history.push('/home');
+        }, 50000);
       } catch (error) {
         console.error('Error during login:', error.message);
         setLoading(false); 
@@ -54,7 +54,7 @@ const LoginForm = () => {
       if (loading) {
         return <Loading />;
       } else {
-        return <MainPage />;
+        return <Home />;
       }
     } else {
       return (

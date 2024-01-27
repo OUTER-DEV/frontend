@@ -47,7 +47,7 @@ const Navbar = () => {
           </svg>
         </div>
 
-        <div className="text-white text-3xl font-extrabold tracking-wide">BABYAERN</div>
+        <div className="text-white text-3xl font-extrabold tracking-wide">BABY EARN</div>
 
         <div className="text-white" onClick={openModal}>
           {/* Remplacez l'icône ci-dessous par l'icône que vous souhaitez utiliser */}

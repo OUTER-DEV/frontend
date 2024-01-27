@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./style.css"
 
 const Transactions = () => {
   // Données fictives pour les transactions
@@ -27,21 +28,21 @@ const Transactions = () => {
 
   return (
     <div className="container mx-auto mt-8 p-8">
-      <h2 className="text-3xl font-bold mb-4">Dernières transactions</h2>
+      <h2 className="text-2xl font-bold mb-4 _text">Dernières transactions</h2>
 
       {/* Tableau des transactions (visible sur les écrans de taille moyenne et plus grands) */}
       <div className="md:block hidden">
         <table className="w-full border-collapse border-b border-blue-500 shadow-lg">
-          <thead className="bg-blue-500 text-white">
+          <thead className=" text-white _head">
             <tr>
-              <th className="p-3">Montant</th>
-              <th className="p-3">Description</th>
-              <th className="p-3">Date du transaction</th>
+              <th className="p-7">Montant</th>
+              <th className="p-4">Description</th>
+              <th className="p-0">Date du transaction</th>
             </tr>
           </thead>
           <tbody>
             {transactions.slice(0, visibleTransactions).map((transaction) => (
-              <tr key={transaction.id} className="bg-white hover:bg-gray-100">
+              <tr key={transaction.id} className=" hover:bg-gray-90 _tab">
                 <td className="p-3">{transaction.amount} EUR</td>
                 <td className="p-3">{transaction.title}</td>
                 <td className="p-3">{transaction.date}</td>
@@ -53,14 +54,14 @@ const Transactions = () => {
         {/* Boutons "Voir plus" et "Voir moins" pour la version tableau */}
         <div className="text-center mt-4">
           <button
-            className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full mr-4"
+            className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full mr-4"
             onClick={handleSeeMore}
           >
             Voir plus
           </button>
           {visibleTransactions > 4 && (
             <button
-              className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full"
+              className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-5 rounded-full"
               onClick={handleSeeLess}
             >
               Voir moins
