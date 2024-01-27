@@ -1,5 +1,4 @@
 
-
 export const createAccount = async (username, firstname, lastname, pin, confirmPin) => {
   const baseURL = process.env.REACT_APP_BASE_URL;
 

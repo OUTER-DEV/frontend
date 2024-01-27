@@ -1,13 +1,11 @@
-// LoginForm.js
-
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './login.css';
 import Loading from '../components/loading';
 import { FaUser, FaLock } from 'react-icons/fa';
 import MainPage from '../Main/main';
 import Form from '../components/form';
-import RegisterForm from './register';
+import { login } from '../api/api_login';
 
 const LoginForm = () => {
   const history = useHistory();
@@ -35,11 +33,17 @@ const LoginForm = () => {
     if (pin.length === 4) {
       setLoading(true);
 
-      // Simulating a loading state
-      setTimeout(() => {
-        setLoading(false);
-        history.push('/main');
-      }, 2000);
+      try {
+        const responseData = await login(userName, pin);
+        setUserName(responseData.user);
+        setTimeout(() => {
+          setLoading(false);
+          history.push('/main');
+        }, 2000);
+      } catch (error) {
+        console.error('Error during login:', error.message);
+        setLoading(false); 
+      }
     } else {
       console.error('Le PIN doit contenir exactement 4 chiffres!');
     }
