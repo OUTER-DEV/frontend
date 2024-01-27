@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { login, update } from '../api/api_login';
 
 const LoginForm = () => {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,36 +15,54 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Ajoutez ici votre logique de traitement des données de connexion, par exemple, une requête à un serveur backend.
-    // Vous pouvez utiliser les valeurs de 'email' et 'password' pour envoyer les données au serveur.
-    console.log('Email:', email);
-    console.log('Password:', password);
+
+    /*try {
+      const user = await login(email, password);
+      console.log('Connexion réussie:', user);
+
+      history.push('/main');
+    } catch (error) {
+      console.error('Erreur:', error);
+    }*/
+    history.push('/main');
+    window.location.reload();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Mot de passe:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-      </div>
-      <button type="submit">Se connecter</button>
-    </form>
+    <form onSubmit={handleSubmit} className="">
+    <div className="">
+      <label htmlFor="email" className="">
+        Email:
+      </label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={handleEmailChange}
+        className=""
+      />
+    </div>
+    <div className="mb-4">
+      <label htmlFor="password" className="">
+        Mot de passe:
+      </label>
+      <input
+        type="password"
+        id="password"
+        value={password}
+        onChange={handlePasswordChange}
+        className=""
+      />
+    </div>
+    <button
+      type="submit"
+      className=""
+    >
+      Se connecter
+    </button>
+  </form>
   );
 };
 
