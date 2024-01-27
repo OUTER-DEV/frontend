@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-
 
 
 import Login from "./Login/login"
-import Header from './Header/Header';
+import Home from './Home/Home';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Redirect to="/login" />
   </Route>
   <Route path="/login" component={Login} />
-  <Route path="/header" component={Header} />
+  <Route path="/home" component={Home} />
   </Switch>
 </Router>
     </>
