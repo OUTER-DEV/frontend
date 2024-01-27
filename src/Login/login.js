@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import './login.css';
 import Loading from '../components/loading';
 import { FaUser, FaLock } from 'react-icons/fa';
 import MainPage from '../Main/main';
+import Form from '../components/form';
 
 const LoginForm = () => {
   const history = useHistory();
@@ -29,20 +30,8 @@ const LoginForm = () => {
 
     if (pin.length === 4) {
       setLoading(true);
-      /**
-       * Data posting
-       */
-      /*try {
-        const user = await login(email, password);
-        console.log('Connexion réussie:', user);
 
-        setLoading(false);
-        history.push('/main');
-      } catch (error) {
-        console.error('Erreur:', error);
-        setLoading(false);
-      }*/
-
+      // Simulating a loading state
       setTimeout(() => {
         setLoading(false);
         history.push('/main');
@@ -52,55 +41,53 @@ const LoginForm = () => {
     }
   };
 
-  return (
-    <>
-      {buttonClicked ? (
-        loading ? (
-          <Loading />
-        ) : (
-          <MainPage />
-        )
-      ) : (
-        <form
+  const renderContent = () => {
+    if (buttonClicked) {
+      if (loading) {
+        return <Loading />;
+      } else {
+        return <MainPage />;
+      }
+    } else {
+      return (
+        <>
+        <Form
           onSubmit={handleSubmit}
-          className="flex flex-col items-center justify-center min-h-screen"
+          buttonText="Connect"
+          fields={[
+            {
+              id: 'userName',
+              type: 'text',
+              value: userName,
+              onChange: handleUserNameChange,
+              placeholder: 'Username',
+              icon: <FaUser />,
+            },
+            {
+              id: 'pin',
+              type: 'text',
+              value: pin,
+              onChange: handlePinChange,
+              placeholder: 'PIN (4 digits)',
+              maxLength: 4,
+              icon: <FaLock />,
+            },
+          ]}
+          buttonDisabled={pin.length !== 4}
         >
-          <div className="_mainContainer">
-            <div className="flex flex-cole">
-              <label className="flex justify-center items-center h-full sm:w-10 _icon">
-                <FaUser />
-              </label>
-              <input
-                type="text"
-                id="userName"
-                value={userName}
-                onChange={handleUserNameChange}
-                className="_input"
-                placeholder="Username"
-              />
-            </div>
-            <div className="flex flex-cole">
-              <label className="flex justify-center items-center h-full sm:w-10 _icon">
-                <FaLock />
-              </label>
-              <input
-                type="text"
-                id="pin"
-                value={pin}
-                onChange={handlePinChange}
-                className="_input"
-                placeholder="PIN (4 digits)"
-                maxLength={4}
-              />
-            </div>
-            <button type="submit" className="_button">
-              Connect
-            </button>
+          
+        </Form>
+        <div className="mt-4">
+            <p className="text-center test">
+              Pas encore inscrit ? <Link to="/register">S'inscrire</Link>
+            </p>
           </div>
-        </form>
-      )}
-    </>
-  );
+        </>
+      );
+    }
+  };
+
+  return <>{renderContent()}</>;
 };
 
 export default LoginForm;
