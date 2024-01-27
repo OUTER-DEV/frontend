@@ -9,7 +9,7 @@ body::before {
     
     content: "";
   background-image: inherit;
-  background-size: inherit;
+  background-size: cover;
   filter: blur(8px);
   position: absolute;
   top: 0;
