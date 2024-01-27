@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-
 
 import Login from "./Login/login"
 import Home from './Home/Home';
+import DepotForm from './Income/Income';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
   </Route>
   <Route path="/login" component={Login} />
   <Route path="/home" component={Home} />
+  <Route path="/income" component={DepotForm} />
   </Switch>
 </Router>
     </>
