@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-
 
 
 import Login from "./Login/login"
-import MainPage from "./Main/main"
-
+import Header from './Header/Header';
 
 function App() {
   return (
@@ -14,9 +13,9 @@ function App() {
   <Switch>
   <Route exact path="/">
         <Redirect to="/login" />
-      </Route>
-    <Route path="/login" component={Login} />
-    <Route path="/main" component={MainPage} />
+  </Route>
+  <Route path="/login" component={Login} />
+  <Route path="/header" component={Header} />
   </Switch>
 </Router>
     </>
