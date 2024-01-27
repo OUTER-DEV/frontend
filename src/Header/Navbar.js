@@ -2,9 +2,7 @@ export default function Navbar() {
     return(
         <nav className="bg-gradient-to-r from-pink-500 to-blue-500 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Icône pour les options à gauche */}
         <div className="text-white">
-          {/* Remplacez l'icône ci-dessous par l'icône que vous souhaitez utiliser */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -21,14 +19,11 @@ export default function Navbar() {
           </svg>
         </div>
 
-        {/* Nom de l'application au centre avec une police plus grande et stylée */}
         <div className="text-white text-3xl font-extrabold tracking-wide">
           BABYEARN
         </div>
 
-        {/* Icône en forme de point d'interrogation à droite */}
         <div className="text-white">
-          {/* Remplacez l'icône ci-dessous par l'icône que vous souhaitez utiliser */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
