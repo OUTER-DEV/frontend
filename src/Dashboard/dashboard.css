@@ -1,0 +1,36 @@
+._container{
+    display: flex;
+    flex-direction: row;
+    color: wheat;
+
+}
+.left{
+    border: solid 1px;
+height: 100vh; 
+width: 20vw;
+text-align: center;
+align-items: center;
+}
+.btn_cnt{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    border: solid 1px;
+    width: 14vw;
+    height: 4vh;
+    align-items: center;
+    text-align: center;
+}
+.cont-btn{
+    display: flex;
+    flex-direction: row;
+    border: solid 0px;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 10%;
+}
+.icon{
+    font-size: 20px;
+    border: solid 1px;
+}
