@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { login, update } from '../api/api_login';
+import "./login.css"
+import { FaUser, FaLock } from 'react-icons/fa';
+
+
 
 const LoginForm = () => {
   const history = useHistory();
-  const [email, setEmail] = useState('');
+  const [userName, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleEmailChange = (e) => {
@@ -31,37 +34,43 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="">
-    <div className="">
-      <label htmlFor="email" className="">
-        Email:
-      </label>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center min-h-screen">
+      <div className='_mainContainer'>
+<div className="flex flex-cole ">
+  <label className='_icon'>
+    <FaUser/>
+  </label>
+
       <input
-        type="email"
-        id="email"
-        value={email}
+        type="text"
+        id="userName"
+        value={userName}
         onChange={handleEmailChange}
-        className=""
+        className="_input"
+        placeholder='Username'
       />
     </div>
-    <div className="mb-4">
-      <label htmlFor="password" className="">
-        Mot de passe:
+    <div className="flex flex-cole">
+      <label className='_icon'>
+        <FaLock/>
       </label>
       <input
         type="password"
         id="password"
         value={password}
         onChange={handlePasswordChange}
-        className=""
+        className="_input"
+        placeholder='Password'
       />
     </div>
     <button
       type="submit"
-      className=""
+      className="_button"
     >
       Se connecter
     </button>
+      </div>
+    
   </form>
   );
 };

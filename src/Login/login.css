@@ -1,0 +1,37 @@
+._mainContainer{
+    border: solid 0px;
+    border-radius: 20px;
+    background-color: rgba(91, 70, 169, 0.525);
+width: 50vw;
+height: 70vh;
+padding: 10% 10%;
+text-align: center;
+}
+._input{
+    width: 25vw;
+    height: 7vh;
+    margin-bottom: 4vh;
+    padding-left: 3%;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgba(147, 63, 174, 0.263);
+    color: aliceblue;
+}
+
+._icon{
+    width: 50px;
+    height: 50px;
+    border: solid 2px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 3%;
+    margin-right: 5px;
+    color: rgb(234, 89, 212);
+}
+._button{
+    border: solid 1px;
+    padding: 1.5vh 5vw;
+    border-radius: 12px;
+    color: rgb(234, 89, 212);
+
+}
