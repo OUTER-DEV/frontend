@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'animate.css';
 
 const Transactions = () => {
   // Données fictives pour les transactions
@@ -26,7 +27,7 @@ const Transactions = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8 p-8">
+    <div className="container mx-auto mt-8 p-8 animate__animated animate__slideInLeft">
       <h2 className="text-3xl font-bold mb-4">Dernières transactions</h2>
 
       {/* Tableau des transactions (visible sur les écrans de taille moyenne et plus grands) */}
